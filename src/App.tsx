@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { SearchBar } from "./components/SearchBar";
 import { SearchTypeSelector } from "./components/SearchTypeSelector";
-import {CompanyCard} from "./components/CompanyCard";
+import { CompanyCard } from "./components/CompanyCard";
 import { FrenchFlag } from "./components/FrenchFlag";
 import { fetchCompanyBySiren, fetchCompanyBySiret } from "./utils/api";
 import { Building } from "lucide-react";
@@ -30,7 +30,8 @@ function App() {
       } else if (type === "siret") {
         // Recherche avec SIRET
         data = await fetchCompanyBySiret(value);
-        setCompany(data.etablissement); // Stocker les données de l'établissement
+        setCompany(data); // Stocker les données de l'établissement
+        console.log(data);
       }
 
       console.log("Données récupérées :", data);
